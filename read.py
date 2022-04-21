@@ -10,8 +10,8 @@ GPIO.setmode(GPIO.BOARD)
 GPIO.setup(11, GPIO.OUT, initial=GPIO.HIGH)
 reader = SimpleMFRC522()
 
-connect = 'node connect.js'
-os.system(connect)
+#connect = 'node connect.js'
+#os.system(connect)
 
 while True:
     print ("===========Wait for UID===========\n")
