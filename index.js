@@ -4,7 +4,8 @@ const fs = require('fs');
 
 var picture = process.argv[2];
 var rfuid = process.argv[3];
-axios.post('http://192.168.254.104:9001/seccam/add',
+var url = "http://afe47cabd8457497fbc403ec51c1c83a-1958255376.ap-east-1.elb.amazonaws.com:9001"
+axios.post(url + '/seccam/add',
   {
     "picture" : picture ,
     "rfuid" : rfuid
@@ -13,9 +14,9 @@ axios.post('http://192.168.254.104:9001/seccam/add',
 
 const formData = new FormData();
 formData.append('photo', fs.createReadStream(picture));
-  const res = axios.post('http://192.168.254.104:9001/seccam/upload', formData, {headers: formData.getHeaders()});
+  const res = axios.post(url + '/seccam/upload', formData, {headers: formData.getHeaders()});
 
-axios.get('http://192.168.254.104:9001/seccam/connect',
+axios.get(url + '/seccam/connect',
   {
     "picture" : picture ,
     "rfuid" : rfuid
