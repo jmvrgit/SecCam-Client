@@ -15,10 +15,3 @@ axios.post(url + '/seccam/add',
 const formData = new FormData();
 formData.append('photo', fs.createReadStream(picture));
   const res = axios.post(url + '/seccam/upload', formData, {headers: formData.getHeaders()});
-
-axios.get(url + '/seccam/connect',
-  {
-    "picture" : picture ,
-    "rfuid" : rfuid
-  }
-    ).then(res => {console.log(`statusCode: ${res.status}`)}).catch(error => {console.error(error)})
